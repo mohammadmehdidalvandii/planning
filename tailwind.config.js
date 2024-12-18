@@ -24,7 +24,8 @@ module.exports = {
           default:"#F3F4F6",
           dark:"#111827",
           100:"#ffffff",
-          200:"#242A38"
+          200:"#242A38",
+          300:"#F3F4F6",
         },
         "font":{
           default:"#111827",
@@ -41,6 +42,9 @@ module.exports = {
         },
         "success":{
           default:"#2F3542"
+        },
+        borderRadius:{
+          50:"50%"
         },
         screen:{
           "xs":"320px",
