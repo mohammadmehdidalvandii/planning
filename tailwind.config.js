@@ -6,6 +6,10 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container:{
+      center: true,
+      padding:"5px"
+    },
     extend: {
       fontFamily:{
         "danaMedium":"danaMedium",
@@ -38,15 +42,13 @@ module.exports = {
         "success":{
           default:"#2F3542"
         },
-        container:{
-          center:true,
-        },
         screen:{
           "xs":"320px",
           "sm":"576px",
           "md":"768px",
           "lg":"992px",
           "xl":"1220px",
+          '2xl':"1420px",
         }
       }
     },
