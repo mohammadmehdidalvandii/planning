@@ -2,3 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base{
+  /* <<< Add Font-Face >>>> */
+  @font-face {
+    font-family: danaMedium;
+    src: url('/assets/font/Dana-Medium.woff') format(woff);
+  }
+  @font-face {
+    font-family: danaBold;
+    src: url('/assets/font/Dana-Bold.woff') format(woff);
+  }
+  @font-face {
+    font-family: danaBlack;
+    src: url('/assets/font/Dana-Black.woff') format(woff);
+  }
+
+  body{
+    @apply m-0 p-0 box-border text-base text-font-default font-danaMedium bg-background-default
+  }
+}
