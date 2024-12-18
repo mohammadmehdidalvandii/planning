@@ -25,6 +25,6 @@
 @layer components{
   /* <<<< button Primary >>>> */
   .btn_primary{
-    @apply flex items-center justify-center w-12 h-12 text-font-100 text-2xl bg-background-300 rounded-full;
+    @apply flex items-center justify-center w-12 h-12 text-font-100 text-2xl bg-background-300 dark:bg-success-default rounded-full;
   }
 }

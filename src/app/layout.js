@@ -10,8 +10,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa">
       <body
-      dir="rtl"
-        className={`antialiased`}
+         dir="rtl"
+        className="dark:bg-background-dark"
       >
         {children}
       </body>
