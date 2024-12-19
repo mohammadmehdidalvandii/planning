@@ -27,4 +27,12 @@
   .btn_primary{
     @apply flex items-center justify-center w-12 h-12 text-font-100 text-2xl bg-background-300 dark:bg-success-default rounded-full;
   }
+
+  .links{
+    @apply flex items-center justify-between font-danaBold text-font-default text-xl ease-linear duration-300 dark:text-font-200  hover:text-primary-default dark:hover:text-primary-default
+  }
+  .links_active{
+    @apply flex items-center justify-between font-danaBold text-primary-default text-xl 
+
+  }
 }
