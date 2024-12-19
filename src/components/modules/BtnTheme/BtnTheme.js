@@ -5,17 +5,20 @@ import { FaSun ,FaMoon  } from "react-icons/fa";
 function BtnTheme() {
     const [theme , setTheme] =useState("light")
 
-    const handlerTheme = ()=>{  
-        if(theme === "light"){
-            setTheme("dark")
-            document.documentElement.classList.toggle("dark")
-            localStorage.setItem("theme" ,"dark")
-        }else if(theme === "dark"){ 
-                setTheme("light")
-            document.documentElement.classList.toggle("dark")
-            localStorage.setItem("theme" ,"light")
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            setTheme(savedTheme);
+            document.documentElement.classList.toggle("dark", savedTheme === "dark");
         }
-    }
+    }, []);
+
+    const handlerTheme = () => {
+        const newTheme = theme === "light" ? "dark" : "light";
+        setTheme(newTheme);
+        document.documentElement.classList.toggle("dark", newTheme === "dark");
+        localStorage.setItem("theme", newTheme);
+    };
 
   return (
     <button  onClick={handlerTheme} className="btn_primary">
