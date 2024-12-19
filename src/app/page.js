@@ -1,5 +1,6 @@
 import Navbar from '@/components/modules/Navbar/Navbar'
 import Sidebar from '@/components/modules/Sidebar/Sidebar'
+import Welcome from '@/components/template/panel/Welcome/Welcome'
 import React from 'react'
 
 function Home() {
@@ -10,7 +11,11 @@ function Home() {
         <div>
           <Sidebar/>
         </div>
-        <div className="col-span-4 bg-black">this block</div>
+        <div className="col-span-4">
+          <div className="container">
+            <Welcome/>
+          </div>
+        </div>
     </div>
    </>
   )
