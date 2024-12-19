@@ -27,6 +27,8 @@ module.exports = {
           100:"#ffffff",
           200:"#242A38",
           300:"#F3F4F6",
+          "shadow-black":"rgba(0,0,0,0.7)",
+          "shadow-white":"rgba(255,255,255,0.1)",
         },
         "font":{
           default:"#111827",

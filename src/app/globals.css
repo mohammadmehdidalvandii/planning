@@ -18,7 +18,7 @@
   }
 
   body{
-    @apply m-0 p-0 box-border text-base text-font-default font-danaMedium bg-background-default;
+    @apply m-0 p-0 box-border text-base text-font-default font-danaMedium bg-background-default relative ;
   }
 }
 
@@ -34,5 +34,8 @@
   .links_active{
     @apply flex items-center justify-between font-danaBold text-primary-default text-xl 
 
+  }
+  .shadow{
+    @apply block fixed z-[7777] bg-background-shadow-black dark:bg-background-shadow-white w-full h-[100vh] top-0 backdrop-blur-[2px]
   }
 }
