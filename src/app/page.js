@@ -2,6 +2,7 @@ import Navbar from '@/components/modules/Navbar/Navbar'
 import Sidebar from '@/components/modules/Sidebar/Sidebar'
 import CalendarFa from '@/components/template/panel/Calendar/Calendar'
 import LastNote from '@/components/template/panel/LastNote/LastNote'
+import LastTodo from '@/components/template/panel/LastTodo/LastTodo'
 import Welcome from '@/components/template/panel/Welcome/Welcome'
 import React from 'react'
 
@@ -24,7 +25,9 @@ function Home() {
               <div className="block">
                 <LastNote/>
               </div>
-              <div className="block bg-slate-500">this is block</div>
+              <div className="block">
+                <LastTodo/>
+              </div>
             </div>
           </div>
         </div>
