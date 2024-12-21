@@ -27,7 +27,7 @@
   .btn_primary{
     @apply flex items-center justify-center w-12 h-12 text-font-100 text-2xl bg-background-300 dark:bg-success-default rounded-full;
   }
-
+  /* <<<< Link and Link_active  >>>> */
   .links{
     @apply flex items-center justify-between font-danaBold text-font-default text-xl ease-linear duration-300 dark:text-font-200  hover:text-primary-default dark:hover:text-primary-default
   }
@@ -35,7 +35,16 @@
     @apply flex items-center justify-between font-danaBold text-primary-default text-xl 
 
   }
+  /* <<<< Shadow background >>> */
   .shadow{
     @apply block fixed z-[7777] bg-background-shadow-black dark:bg-background-shadow-white w-full h-[100vh] top-0 backdrop-blur-[2px]
+  }
+  /* <<<< Box >>>> */
+  .box{
+    @apply block bg-background-100 rounded-lg p-3 dark:bg-background-200;
+  }
+  /* <<<< subTitle >>>> */
+  .subTitle{
+    @apply block font-danaBold text-xl text-font-default dark:text-font-200;
   }
 }
