@@ -1,5 +1,6 @@
 import Navbar from '@/components/modules/Navbar/Navbar'
 import Sidebar from '@/components/modules/Sidebar/Sidebar'
+import Change from '@/components/template/settting/Change/Change'
 import React from 'react'
 
 function page() {
@@ -12,7 +13,7 @@ function page() {
    </div>
    <div className="col-span-4">
      <div className="container">
-           this is setting
+           <Change/>
      </div>
    </div>
 </div>
