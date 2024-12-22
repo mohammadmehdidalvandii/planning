@@ -3,11 +3,20 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { usePathname } from 'next/navigation';
 
 
 
 function Sidebar() {
+    const pathName = usePathname();
     const [activeMenu ,  setActiveMenu] = useState(false)
+    const [userLocation , setUserLocation] =useState('/')
+
+
+    useEffect(()=>{
+        const userPath = pathName;
+        setUserLocation(userPath);
+    },[pathName])
 
     // <<<< Start Handler Show Menu and Exit Menu >>>>
     const handlerShowMenu =()=>{
@@ -42,25 +51,25 @@ function Sidebar() {
         </div>
         <ul className="block mt-6">
             <li className="block mb-4">
-                <Link href="/" className='links_active'>
+                <Link href="/" className={userLocation   === "/" ? "links_active":"links"}>
                  <span className="block">پنل کابری</span>
                  <span className="block"><FaArrowLeftLong/></span>
                 </Link>
             </li>
             <li className="block mb-4">
-                <Link href="/TodoList" className='links'>
+                <Link href="/TodoList" className={userLocation   === "/TodoList" ? "links_active":"links"}>
                  <span className="block">لیست وظیفه</span>
                  <span className="block"><FaArrowLeftLong/></span>
                 </Link>
             </li>
             <li className="block mb-4">
-                <Link href="/NoteList" className='links'>
+                <Link href="/NoteList" className={userLocation   === "/NoteList" ? "links_active":"links"}>
                  <span className="block">یاداشت ها</span>
                  <span className="block"><FaArrowLeftLong/></span>
                 </Link>
             </li>
             <li className="block mb-4">
-                <Link href="/Setting" className='links'>
+                <Link href="/Setting" className={userLocation    === "/Setting" ? "links_active":"links"}>
                  <span className="block">تنظیمات</span>
                  <span className="block"><FaArrowLeftLong/></span>
                 </Link>
@@ -84,25 +93,25 @@ function Sidebar() {
                     </span>
         <ul className="block mt-6">
             <li className="block mb-4">
-                <Link href="/" className='links_active'>
+                <Link href="/" className={userLocation   === "/" ? "links_active":"links"}>
                  <span className="block">پنل کابری</span>
                  <span className="block"><FaArrowLeftLong/></span>
                 </Link>
             </li>
             <li className="block mb-4">
-                <Link href="/TodoList" className='links'>
+                <Link href="/TodoList" className={userLocation   === "/TodoList" ? "links_active":"links"}>
                  <span className="block">لیست وظیفه</span>
                  <span className="block"><FaArrowLeftLong/></span>
                 </Link>
             </li>
             <li className="block mb-4">
-                <Link href="/NoteList" className='links'>
+                <Link href="/NoteList" className={userLocation   === "/NoteList" ? "links_active":"links"}>
                  <span className="block">یاداشت ها</span>
                  <span className="block"><FaArrowLeftLong/></span>
                 </Link>
             </li>
             <li className="block mb-4">
-                <Link href="/Setting" className='links'>
+                <Link href="/Setting" className={userLocation    === "/Setting" ? "links_active":"links"}>
                  <span className="block">تنظیمات</span>
                  <span className="block"><FaArrowLeftLong/></span>
                 </Link>
