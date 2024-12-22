@@ -60,7 +60,7 @@ function Sidebar() {
                 </Link>
             </li>
             <li className="block mb-4">
-                <Link href="" className='links'>
+                <Link href="/Setting" className='links'>
                  <span className="block">تنظیمات</span>
                  <span className="block"><FaArrowLeftLong/></span>
                 </Link>
@@ -84,25 +84,25 @@ function Sidebar() {
                     </span>
         <ul className="block mt-6">
             <li className="block mb-4">
-                <Link href="" className='links_active'>
+                <Link href="/" className='links_active'>
                  <span className="block">پنل کابری</span>
                  <span className="block"><FaArrowLeftLong/></span>
                 </Link>
             </li>
             <li className="block mb-4">
-                <Link href="" className='links'>
+                <Link href="/TodoList" className='links'>
                  <span className="block">لیست وظیفه</span>
                  <span className="block"><FaArrowLeftLong/></span>
                 </Link>
             </li>
             <li className="block mb-4">
-                <Link href="" className='links'>
+                <Link href="/NoteList" className='links'>
                  <span className="block">یاداشت ها</span>
                  <span className="block"><FaArrowLeftLong/></span>
                 </Link>
             </li>
             <li className="block mb-4">
-                <Link href="" className='links'>
+                <Link href="/Setting" className='links'>
                  <span className="block">تنظیمات</span>
                  <span className="block"><FaArrowLeftLong/></span>
                 </Link>
