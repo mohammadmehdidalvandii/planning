@@ -24,16 +24,16 @@ function TableNote() {
             <tr className="border-b bg-background-300 dark:bg-background-dark">
               <td className="px-2 py-3 text-center">عملیات 1</td>
               <td className="px-2 py-3 text-center">
-                <button className="bg-primary-default text-background-100 py-1 px-3 rounded hover:bg-primary-100">
+                <button className="btn_blue h-10 mx-auto">
                   مشاهده
                 </button>
               </td>
               <td className="px-2 py-3 text-center">1402/01/01</td>
               <td className="flex items-center justify-center flex-col md:flex-row  px-2 py-3 text-center gap-2">
-                <button className="bg-green-500 text-background-100 py-1 px-3 rounded hover:bg-green-600">
+                <button className="btn_green h-10 w-[100px]">
                    ویرایش
                 </button>
-                <button className="bg-red-500 text-background-100 py-1 px-3 rounded hover:bg-red-600">
+                <button className="btn_red h-10 w-[100px]">
                   حذف شود
                 </button>
               </td>
@@ -41,16 +41,16 @@ function TableNote() {
             <tr className="border-b bg-background-300 dark:bg-background-dark">
               <td className="px-2 py-3 text-center">عملیات 2</td>
               <td className="px-2 py-3 text-center">
-                <button className="bg-primary-default text-background-100 py-1 px-3 rounded hover:bg-primary-100">
+                <button className="btn_blue h-10 mx-auto">
                   مشاهده
                 </button>
               </td>
               <td className="px-2 py-3 text-center">1402/01/02</td>
               <td className="flex items-center justify-center flex-col md:flex-row px-2 py-3 text-center gap-2">
-                <button className="bg-green-500 text-background-100 py-1 px-3 rounded hover:bg-green-600">
+                <button className="btn_green h-10 w-[100px]">
                  ویرایش
                 </button>
-                <button className="bg-red-500 text-background-100 py-1 px-3 rounded hover:bg-red-600">
+                <button className="btn_red h-10 w-[100px]">
                   حذف شود
                 </button>
               </td>
