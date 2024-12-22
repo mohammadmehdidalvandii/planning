@@ -54,7 +54,7 @@ function Sidebar() {
                 </Link>
             </li>
             <li className="block mb-4">
-                <Link href="" className='links'>
+                <Link href="/NoteList" className='links'>
                  <span className="block">یاداشت ها</span>
                  <span className="block"><FaArrowLeftLong/></span>
                 </Link>
