@@ -26,7 +26,8 @@ function Register() {
                     <label htmlFor="#" className="form_label"> رمزعبور :</label>
                     <input type="text" className='form_input' />
                 </div>
-                <input type="submit" className='btn_green h-10 w-full mt-4' />
+                <button  className='btn_green h-10 w-full mt-4'>ثبت نام</button>
+
             </form>
         </div>
     </section>
