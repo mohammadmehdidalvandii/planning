@@ -7,7 +7,7 @@ const hashPassword = async (password)=>{
 };
 
 const verifyPassword = async (password , hashedPassword)=>{
-    const isValid = await compare(password , hashPassword);
+    const isValid = await compare(password , hashedPassword);
     return isValid;
 };
 
