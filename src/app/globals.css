@@ -49,14 +49,24 @@
   }
   /* <<<< btn_blue >>>> */
   .btn_blue{
-    @apply flex items-center justify-center w-[120px] h-12 bg-primary-default font-danaBold text-background-100 rounded-lg ease-linear duration-300 hover:bg-primary-100
+    @apply flex items-center justify-center w-[120px] h-12 cursor-pointer bg-primary-default font-danaBold text-background-100 rounded-lg ease-linear duration-300 hover:bg-primary-100
   }
     /* <<<< btn_green >>>> */
   .btn_green{
-    @apply flex items-center justify-center w-[120px] h-12 bg-secondary-default font-danaBold text-background-100 rounded-lg ease-linear duration-300 hover:bg-secondary-100
+    @apply flex items-center justify-center w-[120px] h-12 cursor-pointer bg-secondary-default font-danaBold text-background-100 rounded-lg ease-linear duration-300 hover:bg-secondary-100
   }
     /* <<<< btn_red >>>> */
   .btn_red{
-    @apply flex items-center justify-center w-[120px] h-12 bg-red-500 font-danaBold text-background-100 rounded-lg ease-linear duration-300 hover:bg-red-600
+    @apply flex items-center justify-center w-[120px] h-12 cursor-pointer bg-red-500 font-danaBold text-background-100 rounded-lg ease-linear duration-300 hover:bg-red-600
+  }
+  /* <<<< Form Style >>>> */
+  .form_wrapper{
+    @apply block mt-4;
+  }
+  .form_label{
+    @apply block text-font-default dark:text-font-100;
+  }
+  .form_input{
+    @apply block w-full h-10 mt-2 pr-3 outline-none rounded-lg  text-font-default dark:text-font-100 bg-background-300 dark:bg-success-default;
   }
 }
