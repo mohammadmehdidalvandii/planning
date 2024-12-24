@@ -11,7 +11,7 @@ const verifyPassword = async (password , hashedPassword)=>{
     return isValid;
 };
 
-const generateAccessToken = ()=>{
+const generateAccessToken = (data)=>{
     const token = sign({...data} , process.env.ACCESS_TOKEN,{
         expiresIn:"60d"
     } );
