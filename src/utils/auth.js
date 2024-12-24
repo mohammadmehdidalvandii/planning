@@ -28,7 +28,7 @@ const verifyAccessToken = (token)=>{
 };
 
 const generateRefreshToken = (data)=>{
-    const token = sign(data , process.env.REFRESH_TOKEN , {
+    const token = sign({...data} , process.env.REFRESH_TOKEN , {
         expiresIn:"15d"
     });
     return token;
