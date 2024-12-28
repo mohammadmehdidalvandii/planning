@@ -1,7 +1,24 @@
+"use client"
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
+import useAuthStore from '@/zustand/useAuthStore'
 
 function Register() {
+const {register} = useAuthStore();
+const [username , setUsername] = useState("")
+const [email , setEmail] = useState("")
+const [phone , setPhone] = useState("")
+const [password , setPassword] = useState("")
+console.log(username , email , phone , password)
+
+    const handlerRegister = async (e) =>{
+        e.preventDefault();
+         register(username , email , phone , password)
+
+    }
+
+
+
   return (
     <section className="block mx-auto mt-12 w-full px-2 md:w-[400px] xl:w-[450px]"> 
         <div className="box">
@@ -12,21 +29,35 @@ function Register() {
             <form action="#" className="block">
                 <div className="form_wrapper">
                     <label htmlFor="#" className="form_label">نام کاربری :</label>
-                    <input type="text" className='form_input' />
+                    <input type="text"
+                    value={username}
+                    onChange={event => setUsername(event.target.value)}                    
+                    className='form_input' />
                 </div>
                 <div className="form_wrapper">
                     <label htmlFor="#" className="form_label"> ایمیل :</label>
-                    <input type="text" className='form_input' />
+                    <input type="text"
+                    value={email}
+                    onChange={event => setEmail(event.target.value)}                    
+                    className='form_input' />
                 </div>
                 <div className="form_wrapper">
                     <label htmlFor="#" className="form_label"> شماره تلفن :</label>
-                    <input type="text" className='form_input' />
+                    <input type="text"
+                    value={phone}
+                    onChange={event => setPhone(event.target.value)}                    
+                    className='form_input' />
                 </div>
                 <div className="form_wrapper">
                     <label htmlFor="#" className="form_label"> رمزعبور :</label>
-                    <input type="text" className='form_input' />
+                    <input type="password"
+                    value={password}
+                    onChange={event => setPassword(event.target.value)}                    
+                    className='form_input' />
                 </div>
-                <button  className='btn_green h-10 w-full mt-4'>ثبت نام</button>
+                <button  className='btn_green h-10 w-full mt-4'
+                onClick={handlerRegister}
+                >ثبت نام</button>
 
             </form>
         </div>
