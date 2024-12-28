@@ -51,7 +51,9 @@ const useAuthStore  = create((set) => ({
                
             } else if(res.status === 422){
                 showAlert("کاربر با این اطلاعات وجود دارد","error","تلاش مجدد")
-
+                
+            } else if(res.status === 401){
+                showAlert("رمزعبور یا ایمیل اشتباه است ","error","تلاش مجدد")
             }
         } catch (error) {
             console.log("Registration Failed", error);
