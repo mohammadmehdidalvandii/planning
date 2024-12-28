@@ -1,10 +1,17 @@
+"use client"
 import React from 'react';
 import { IoExitOutline } from "react-icons/io5";
 import BtnTheme from '../BtnTheme/BtnTheme';
+import useAuthStore from '@/zustand/useAuthStore';
 
 
 
 function Navbar() {
+    const {logout} = useAuthStore();
+
+    const handlerExit = ()=>{
+        logout()
+    }
   return (
     <section className="block w-full py-4  bg-background-100 dark:bg-background-200">
         <div className="container ">
@@ -15,7 +22,7 @@ function Navbar() {
                 </div>
                 <div className="flex justify-center gap-4">
                     <BtnTheme/>
-                    <button className="btn_primary">
+                    <button className="btn_primary" onClick={handlerExit}>
                         <IoExitOutline/>
                     </button>
                 </div>

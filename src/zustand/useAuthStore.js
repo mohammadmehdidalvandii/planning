@@ -57,7 +57,39 @@ const useAuthStore  = create((set) => ({
             console.log("Registration Failed", error);
         }
     },
-    logout: () => set({ user: null, isAuthenticated: false })
+    logout: () => {
+        try{
+            swal({
+                title:"آیا از خروج مطمئن هستید؟",
+                icon:"warning",
+                buttons:["نه","آره"]
+            }).then(async (result)=>{
+                if(result){
+                    const res = await fetch('/api/auth/signout',{
+                        method :"POST",
+                        headers:{
+                            "Content-Type" : "application/json"
+                        },
+                    });
+                    if(res.status === 200){
+                        set({ user: null, isAuthenticated: false });
+                        swal({
+                            title:"خروج با موفقیت انجام شد", 
+                            icon: "success",
+                            buttons:"متوجه شدم"
+                        }).then(()=>{
+                            window.location.replace("/Login")
+                        });
+                    }else{
+                        showAlert("خروج نا موفق بود ","error","تلاش مجدد")
+                    }
+                }
+            })
+
+        } catch(error){
+            console.log("Logout Failed" , error)
+        }
+    }
 }));
 
 export default useAuthStore
