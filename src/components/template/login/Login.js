@@ -7,7 +7,6 @@ function Login() {
     const {login} = useAuthStore()
     const [email , setEmail] = useState("");
     const [password , setPassword] = useState("");
-    console.log("email - password" , email , password)
 
     const handlerLogin = (e)=>{
         e.preventDefault();
