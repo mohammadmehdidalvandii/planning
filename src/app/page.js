@@ -4,9 +4,17 @@ import CalendarFa from '@/components/template/panel/Calendar/Calendar'
 import LastNote from '@/components/template/panel/LastNote/LastNote'
 import LastTodo from '@/components/template/panel/LastTodo/LastTodo'
 import Welcome from '@/components/template/panel/Welcome/Welcome'
+import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
 import React from 'react'
 
 function Home() {
+
+  const token = cookies().get("token");
+  if(!token){
+    return redirect('/Login')
+  }
+
   return (
    <>
     <Navbar/>
