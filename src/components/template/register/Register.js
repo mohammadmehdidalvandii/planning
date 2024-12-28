@@ -9,7 +9,6 @@ const [username , setUsername] = useState("")
 const [email , setEmail] = useState("")
 const [phone , setPhone] = useState("")
 const [password , setPassword] = useState("")
-console.log(username , email , phone , password)
 
     const handlerRegister = async (e) =>{
         e.preventDefault();

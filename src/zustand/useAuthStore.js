@@ -17,6 +17,13 @@ const useAuthStore  = create((set) => ({
             const data = await res.json();
             if (res.status === 200) {
                 set({ user: data.user, isAuthenticated: true });
+                swal({  
+                    title:"با موفقیت وارد شدید",
+                    icon:"success",
+                    button:"پنل کاریری",
+                }).then(()=>{
+                    window.location.replace("/")
+                })
             }
         } catch (error) {
             console.log("Login Failed", error);
@@ -34,8 +41,13 @@ const useAuthStore  = create((set) => ({
             const data = await res.json();
             if (res.status === 201) {
                 set({ user: data.user, isAuthenticated: true });
-                    showAlert("حساب کاربری شما با موفقیت ساخت شد","success","وارد شوید")
+                swal({  
+                    title:"حساب کاربری شما با موفقیت ساخت شد",
+                    icon:"success",
+                    button:"وارد شوید ",
+                }).then(()=>{
                     window.location.replace("/Login")
+                })
                
             } else if(res.status === 422){
                 showAlert("کاربر با این اطلاعات وجود دارد","error","تلاش مجدد")
