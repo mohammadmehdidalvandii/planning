@@ -29,6 +29,7 @@ function TableTodo() {
                 <tr className="bg-background-dark text-font-200 dark:bg-background-300 dark:text-font-default">
                     <th className="px-2 py-3 text-center">موضوع</th>
                     <th className="px-2 py-3 text-center">تاریخ</th>
+                    <th className="px-2 py-3 text-center">وضعیت</th>
                     <th className="px-2 py-3 text-center">عملیات</th>
                 </tr>
             </thead>
@@ -36,6 +37,7 @@ function TableTodo() {
                 <tr className="border-b bg-background-300 dark:bg-background-dark">
                     <td className="px-2 py-3 text-center">عملیات 1</td>
                     <td className="px-2 py-3 text-center">1402/01/01</td>
+                    <td className="px-2 py-3 text-center">کامل نشد</td>
                     <td className="flex items-center justify-center flex-col md:flex-row  px-2 py-3 text-center gap-2">
                         <button className="btn_green h-10 w-[100px]">انجام شد</button>
                         <button className="btn_red h-10 w-[100px]">حذف شود</button>
@@ -44,6 +46,7 @@ function TableTodo() {
                 <tr className="border-b bg-background-300 dark:bg-background-dark">
                     <td className="px-2 py-3 text-center">عملیات 2</td>
                     <td className="px-2 py-3 text-center">1402/01/02</td>
+                    <td className="px-2 py-3 text-center">کامل نشد</td>
                     <td className="flex items-center justify-center flex-col md:flex-row px-2 py-3 text-center gap-2">
                         <button className="btn_green h-10 w-[100px]">انجام شد</button>
                         <button className="btn_red h-10 w-[100px]">حذف شود</button>
