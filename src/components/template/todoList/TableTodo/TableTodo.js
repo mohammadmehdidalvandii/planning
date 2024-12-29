@@ -1,13 +1,28 @@
-import Link from 'next/link'
-import React from 'react'
+"use client"
+import React, { useState } from 'react';
+import AddToDo from '../AddToDo/AddToDo';
+import { FaTimes } from 'react-icons/fa';
+
 
 function TableTodo() {
+    const [showAddTodos , setShowAddTodos] = useState(false);
+
+    const handlerShowAddTodo = ()=>{
+        setShowAddTodos(true)
+    }
+    const handlerExitAddTodo = ()=>{
+        setShowAddTodos(false)
+    }
+
+
   return (
         <section className="block w-full mt-4">
             <div className="box">
                 <div className="flex items-center justify-between ">
                     <h6 className="subTitle">لیست وظیفه</h6>
-                    <Link href='/AddTodo' className='btn_blue'>افزودن</Link>
+                    <button className="btn_blue" 
+                        onClick={handlerShowAddTodo}
+                    >افزودن</button>
                 </div>
                 <table className="min-w-full bg-white border border-font-100 dark:border-background-200 mt-4">
             <thead>
@@ -37,6 +52,15 @@ function TableTodo() {
             </tbody>
         </table>
             </div>
+            {showAddTodos && (
+            <div className="shadow right-0" 
+            >
+                   <button className="btn_red mt-1 mr-1 w-[70px]" 
+                        onClick={handlerExitAddTodo}
+                    ><FaTimes/></button>
+                <AddToDo/>
+            </div>
+            )}
         </section>
   )
 }
