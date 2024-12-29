@@ -14,7 +14,7 @@ function addNote() {
             </div>
             <div className="form_wrapper">
                 <label htmlFor="#" className='form_label'>یادداشت</label>
-                <textarea name="#" className='block w-full h-[250px] mt-2 pr-3 pt-3 outline-none rounded-lg  text-font-default dark:text-font-100 bg-background-300 dark:bg-success-default;'></textarea>
+                <textarea name="#" className='block w-full h-[250px] mt-2 pr-3 pt-3 outline-none rounded-lg  text-font-default dark:text-font-100 bg-background-300 dark:bg-success-default'></textarea>
             </div>
             <div className="form_wrapper">
                 <label htmlFor="#" className='form_label'>تاریخ</label>
