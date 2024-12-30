@@ -11,14 +11,14 @@ export async function POST(req){
             username,
             subject,
             date,
-            status,
+            complete,
         } = body;
 
         await TodoModel.create({
             username,
             subject,
             date,
-            status,
+            complete,
         });
 
         return Response.json(

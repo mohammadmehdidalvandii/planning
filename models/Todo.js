@@ -15,7 +15,7 @@ const schema = new mongoose.Schema({
         type:String,
         required:true,
     },
-    status:{
+    complete:{
         type:Boolean,
         required:true,
     }

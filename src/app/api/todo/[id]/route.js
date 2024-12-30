@@ -30,3 +30,44 @@ export async function DELETE(req , {params}) {
     }
     
 }
+
+
+export async function PUT (req , {params}){
+    try{
+        connectDB();
+
+        const todoID = params?.id;
+
+        if(!todoID){
+            return Response.json(
+                {message:"Todo ID is Required"},
+                {status:400}
+            )
+        };
+
+        const updatedTodo = await TodoModel.findOneAndUpdate(
+            {_id:todoID},
+            {complete:true},
+            {new: true}
+        );
+
+        if(!updatedTodo){
+            return Response.json(
+                {message:"Todo not Found"},
+                {status:404}
+            )
+        }
+
+        return Response.json(
+            {message:"Todo Updated Successfully" , todo:updatedTodo},
+            {status:200}
+        )
+
+    } catch(error){
+        console.log("error => " , error)
+        return Response.json(
+            {message:"Error Updating Todo  server =>" , error},
+            {status:500}
+        )
+    }
+}
