@@ -28,6 +28,37 @@ const useTodoStore = create((set)=>({
         } catch(error){
             console.log("AddTodo Failed" , error)
         }
+    },
+
+    removeTodo :  (id)=>{
+        try{
+            swal({
+                title:"آیا از حذف تودو اطمینان دارید ؟",
+                icon:"warning",
+                buttons:["نه","آره"]
+            }).then(async (result)=>{
+                if(result){
+                    const res = await fetch(`/api/todo/${id}` , {
+                        method: "DELETE",
+                    });
+                    if(res.status === 200){
+                        set((state)=>({
+                            todos: state.todos.filter(todo => todo._id !== id)
+                        }));
+                        swal({
+                            title:"تود و با موفقیت حذف شد",
+                            icon:"success",
+                            buttons:"متوجه شدم "
+                        }).then(()=>{
+                            window.location.reload()
+                        })
+                    }
+                }
+            })
+           
+        } catch(error){
+            console.log("RemoveTodo Failed" , error)
+        }
     }
 }));
 

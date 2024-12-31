@@ -2,10 +2,18 @@
 import React, { useState } from 'react';
 import AddToDo from '../AddToDo/AddToDo';
 import { FaTimes } from 'react-icons/fa';
+import useTodoStore from '@/zustand/useTodoStore';
 
 
 function TableTodo({todos}) {
+    const {removeTodo} = useTodoStore()
     const [showAddTodos , setShowAddTodos] = useState(false);
+
+    const handlerRemoveTodo = (todoID)=>{
+        // e.preventDefault()
+        removeTodo(todoID)
+
+    }
 
     const handlerShowAddTodo = ()=>{
         setShowAddTodos(true)
@@ -45,7 +53,9 @@ function TableTodo({todos}) {
                     </td>
                     <td className="flex items-center justify-center flex-col md:flex-row  px-2 py-3 text-center gap-2">
                         <button className="btn_green h-10 w-[100px]">انجام شد</button>
-                        <button className="btn_red h-10 w-[100px]">حذف شود</button>
+                        <button className="btn_red h-10 w-[100px]"
+                        onClick={()=>handlerRemoveTodo(todo._id)}
+                        >حذف شود</button>
                     </td>
                 </tr>
             ))
