@@ -6,13 +6,17 @@ import useTodoStore from '@/zustand/useTodoStore';
 
 
 function TableTodo({todos}) {
-    const {removeTodo} = useTodoStore()
+    const {removeTodo , completeTodo} = useTodoStore()
     const [showAddTodos , setShowAddTodos] = useState(false);
 
     const handlerRemoveTodo = (todoID)=>{
-        // e.preventDefault()
+        // e.preventDefault() 
         removeTodo(todoID)
 
+    }
+
+    const handlerCompleteTodo = (todoID)=>{
+        completeTodo(todoID)
     }
 
     const handlerShowAddTodo = ()=>{
@@ -52,7 +56,9 @@ function TableTodo({todos}) {
                         {todo.complete === false ? "کامل نشد" : "کامل شد "}
                     </td>
                     <td className="flex items-center justify-center flex-col md:flex-row  px-2 py-3 text-center gap-2">
-                        <button className="btn_green h-10 w-[100px]">انجام شد</button>
+                        <button className="btn_green h-10 w-[100px]"
+                        onClick={()=>handlerCompleteTodo(todo._id)}
+                        >انجام شد</button>
                         <button className="btn_red h-10 w-[100px]"
                         onClick={()=>handlerRemoveTodo(todo._id)}
                         >حذف شود</button>

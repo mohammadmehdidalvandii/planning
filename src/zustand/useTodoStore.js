@@ -59,6 +59,38 @@ const useTodoStore = create((set)=>({
         } catch(error){
             console.log("RemoveTodo Failed" , error)
         }
+    },
+    completeTodo : (id)=>{
+        try{
+            swal({
+                title:"آیا از تکمیل تودو اطمینان دارید ؟",
+                icon:"error",
+                buttons:["نه","آره"]
+            }).then(async (result)=>{
+                if(result){
+                    const res = await fetch(`/api/todo/${id}` , {
+                        method: "PUT",
+                        headers:{
+                            "Content-Type":"application/json",
+                        }
+                    });
+                    if(res.status === 200 ){
+                        set((state)=>({
+                            todos: state.todos.map(todo => todo._id === id ? {...todo  }: true
+                        )}));
+                        swal({
+                            title:"تودو کامل شد",
+                            icon:"success",
+                            buttons:"متوجه شدم"
+                        }).then(()=>{
+                            window.location.reload()
+                        })
+                    }
+                }
+            })
+        } catch(error){
+            console.log("Complete Todo Failed" ,error)
+        }
     }
 }));
 
