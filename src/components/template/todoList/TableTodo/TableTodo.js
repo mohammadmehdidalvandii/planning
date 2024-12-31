@@ -4,7 +4,7 @@ import AddToDo from '../AddToDo/AddToDo';
 import { FaTimes } from 'react-icons/fa';
 
 
-function TableTodo() {
+function TableTodo({todos}) {
     const [showAddTodos , setShowAddTodos] = useState(false);
 
     const handlerShowAddTodo = ()=>{
@@ -34,24 +34,28 @@ function TableTodo() {
                 </tr>
             </thead>
             <tbody className="text-font-default dark:text-font-100 text-base font-danaMedium">
-                <tr className="border-b bg-background-300 dark:bg-background-dark">
-                    <td className="px-2 py-3 text-center">عملیات 1</td>
-                    <td className="px-2 py-3 text-center">1402/01/01</td>
-                    <td className="px-2 py-3 text-center">کامل نشد</td>
+            {
+        todos.length > 0 ? (
+            todos.map((todo) => (
+                <tr className="border-b bg-background-300 dark:bg-background-dark" key={todo._id}>
+                    <td className="px-2 py-3 text-center">{todo.subject}</td>
+                    <td className="px-2 py-3 text-center">{todo.date}</td>
+                    <td className="px-2 py-3 text-center">
+                        {todo.complete === false ? "کامل نشد" : "کامل شد "}
+                    </td>
                     <td className="flex items-center justify-center flex-col md:flex-row  px-2 py-3 text-center gap-2">
                         <button className="btn_green h-10 w-[100px]">انجام شد</button>
                         <button className="btn_red h-10 w-[100px]">حذف شود</button>
                     </td>
                 </tr>
-                <tr className="border-b bg-background-300 dark:bg-background-dark">
-                    <td className="px-2 py-3 text-center">عملیات 2</td>
-                    <td className="px-2 py-3 text-center">1402/01/02</td>
-                    <td className="px-2 py-3 text-center">کامل نشد</td>
-                    <td className="flex items-center justify-center flex-col md:flex-row px-2 py-3 text-center gap-2">
-                        <button className="btn_green h-10 w-[100px]">انجام شد</button>
-                        <button className="btn_red h-10 w-[100px]">حذف شود</button>
-                    </td>
-                </tr>
+            ))
+        ) : (
+            <tr>
+                <td colSpan="4" className="px-2 py-3 text-center font-danaBlack text-4xl text-red-600">تودو وجود ندارد</td>
+            </tr>
+        )
+    }
+
             </tbody>
         </table>
             </div>
