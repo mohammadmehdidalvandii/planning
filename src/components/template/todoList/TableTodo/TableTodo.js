@@ -50,9 +50,9 @@ function TableTodo({todos}) {
         todos.length > 0 ? (
             todos.map((todo) => (
                 <tr className="border-b bg-background-300 dark:bg-background-dark" key={todo._id}>
-                    <td className="px-2 py-3 text-center">{todo.subject}</td>
+                    <td className={todo.complete === true ? "px-2 py-3 text-center line-through " :"px-2 py-3 text-center"}>{todo.subject}</td>
                     <td className="px-2 py-3 text-center">{todo.date}</td>
-                    <td className="px-2 py-3 text-center">
+                    <td className={todo.complete === true ? "px-2 py-3 text-center text-secondary-100 text-xl" :"px-2 py-3 text-center text-xl   text-red-600"}>
                         {todo.complete === false ? "کامل نشد" : "کامل شد "}
                     </td>
                     <td className="flex items-center justify-center flex-col md:flex-row  px-2 py-3 text-center gap-2">
