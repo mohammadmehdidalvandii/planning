@@ -2,8 +2,15 @@ import Navbar from '@/components/modules/Navbar/Navbar'
 import Sidebar from '@/components/modules/Sidebar/Sidebar'
 import TableNote from '@/components/template/noteList/TableNote/TableNote'
 import React from 'react'
+import NoteModel from '@/models/Note';
 
-function page() {
+
+ async function page() {
+
+  const notes = await NoteModel.find({});
+
+
+
   return (
     <>
     <Navbar/>
@@ -13,7 +20,7 @@ function page() {
    </div>
    <div className="col-span-4">
      <div className="container">
-           <TableNote/>
+           <TableNote notes={notes}/>
      </div>
    </div>
 </div>

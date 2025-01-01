@@ -4,14 +4,22 @@ import React, { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import AddNote from "../AddNote/AddNote";
 
-function TableNote() {
+function TableNote({notes}) {
       const [showAddNote , setShowAddNote] = useState(false);
+      const [ showTextNote , setShowTextNote] = useState(false)
+      const [textNote , setTextNote] = useState();
+
+      const showNoteText = (text)=>{
+        setShowTextNote(true)
+        setTextNote(text)
+      }
   
       const handlerShowAddNote = ()=>{
           setShowAddNote(true)
       }
       const handlerExitAddNote = ()=>{
           setShowAddNote(false)
+          setShowTextNote(false)
       }
 
   return (
@@ -33,14 +41,19 @@ function TableNote() {
             </tr>
           </thead>
           <tbody className="text-font-default dark:text-font-100 text-base font-danaMedium">
-            <tr className="border-b bg-background-300 dark:bg-background-dark">
-              <td className="px-2 py-3 text-center">عملیات 1</td>
+            {
+              notes.length > 0 ? (
+                notes.map((note)=>(
+                  <tr className="border-b bg-background-300 dark:bg-background-dark" key={note._id}>
+              <td className="px-2 py-3 text-center">{note.subject}</td>
               <td className="px-2 py-3 text-center">
-                <button className="btn_blue h-10 mx-auto">
+                <button className="btn_blue h-10 mx-auto" 
+                onClick={()=>showNoteText(note.text)}
+                >
                   مشاهده
                 </button>
               </td>
-              <td className="px-2 py-3 text-center">1402/01/01</td>
+              <td className="px-2 py-3 text-center">{note.date}</td>
               <td className="flex items-center justify-center flex-col md:flex-row  px-2 py-3 text-center gap-2">
                 <button className="btn_green h-10 w-[100px]">
                    ویرایش
@@ -50,23 +63,13 @@ function TableNote() {
                 </button>
               </td>
             </tr>
-            <tr className="border-b bg-background-300 dark:bg-background-dark">
-              <td className="px-2 py-3 text-center">عملیات 2</td>
-              <td className="px-2 py-3 text-center">
-                <button className="btn_blue h-10 mx-auto">
-                  مشاهده
-                </button>
-              </td>
-              <td className="px-2 py-3 text-center">1402/01/02</td>
-              <td className="flex items-center justify-center flex-col md:flex-row px-2 py-3 text-center gap-2">
-                <button className="btn_green h-10 w-[100px]">
-                 ویرایش
-                </button>
-                <button className="btn_red h-10 w-[100px]">
-                  حذف شود
-                </button>
-              </td>
+                ))
+              ) : (
+                <tr>
+                <td colSpan="4" className="px-2 py-3 text-center font-danaBlack text-4xl text-red-600">یاداشت  وجود ندارد</td>
             </tr>
+              )
+            }
           </tbody>
         </table>
       </div>
@@ -79,6 +82,20 @@ function TableNote() {
                   <AddNote/>
             </div>
             )}
+            {
+              showTextNote && (
+                <div className="shadow right-0">
+                   <button className="btn_red mt-1 mr-1 w-[70px]" 
+                        onClick={handlerExitAddNote}
+                    ><FaTimes/></button>
+                    <div className="box w-[50%] mx-auto mt-12">
+                        <p className="block font-danaMedium text-xl text-font-default dark:text-font-200">
+                        {textNote}
+                        </p>
+                    </div>
+                </div>
+              )
+            }
     </section>
   );
 }
