@@ -27,7 +27,31 @@ const useNoteStore = create((set)=>({
             console.log("AddNote Failed" , error)
         }
     },
-    removeNote : ()=>{}
+    removeNote : (id)=>{
+        swal({
+            title:"آیا از حذف یادداشت اطمینان دارید؟",
+            icon:"warning",
+            buttons:["نه","آره"]
+        }).then(async (result)=>{
+            if(result){
+                const res =await fetch(`/api/note/${id}`,{
+                    method: "DELETE"
+                });
+                if(res.status === 200){
+                    set((state)=>({
+                        notes: state.notes.filter(note => note._id !== id)
+                    }));
+                    swal({
+                        title:" یادداشت  با موفقیت حذف شد",
+                        icon:"success",
+                        buttons:"متوجه شدم "
+                    }).then(()=>{
+                        window.location.reload()
+                    })
+                }
+            }
+        })
+    }
 }))
 
 export default useNoteStore;

@@ -3,11 +3,17 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import AddNote from "../AddNote/AddNote";
+import useNoteStore from "@/zustand/useNoteStore";
 
 function TableNote({notes}) {
+  const {removeNote} = useNoteStore()
       const [showAddNote , setShowAddNote] = useState(false);
       const [ showTextNote , setShowTextNote] = useState(false)
       const [textNote , setTextNote] = useState();
+
+    const handlerRemoveNote = (noteID)=>{
+      removeNote(noteID)
+    }
 
       const showNoteText = (text)=>{
         setShowTextNote(true)
@@ -58,7 +64,9 @@ function TableNote({notes}) {
                 <button className="btn_green h-10 w-[100px]">
                    ویرایش
                 </button>
-                <button className="btn_red h-10 w-[100px]">
+                <button className="btn_red h-10 w-[100px]"
+                onClick={()=>handlerRemoveNote(note._id)}
+                >
                   حذف شود
                 </button>
               </td>
@@ -88,8 +96,8 @@ function TableNote({notes}) {
                    <button className="btn_red mt-1 mr-1 w-[70px]" 
                         onClick={handlerExitAddNote}
                     ><FaTimes/></button>
-                    <div className="box w-[50%] mx-auto mt-12">
-                        <p className="block font-danaMedium text-xl text-font-default dark:text-font-200">
+                    <div className="box max-w-[50%] mx-auto mt-12">
+                        <p className="break-words w-full text-wrap font-danaMedium text-xl text-font-default dark:text-font-200">
                         {textNote}
                         </p>
                     </div>
