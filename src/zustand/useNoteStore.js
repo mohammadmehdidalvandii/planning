@@ -26,7 +26,8 @@ const useNoteStore = create((set)=>({
         } catch(error){
             console.log("AddNote Failed" , error)
         }
-    }
+    },
+    removeNote : ()=>{}
 }))
 
 export default useNoteStore;
