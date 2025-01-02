@@ -9,8 +9,8 @@ import { authUser } from '@/utils/serverHelpers'
 async function page() {
   await  connectDB()
 
-  const todos = await TodoModel.find({})
   const user = await authUser();
+  const todos = await TodoModel.find({username:user?._id})
 
   return (
     <>

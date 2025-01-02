@@ -9,10 +9,10 @@ import { authUser } from '@/utils/serverHelpers';
 
  async function page() {
   await connectDB()
-  const notes = await NoteModel.find({});
   const user = await authUser();
-
-
+  
+  const notes = await NoteModel.find({username:user?._id});
+ 
   return (
     <>
     <Navbar/>

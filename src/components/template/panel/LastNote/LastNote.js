@@ -2,13 +2,16 @@ import CartSubNote from '@/components/modules/CartSubNote/CartSubNote'
 import connectDB from '@/config/db'
 import React from 'react'
 import NoteModel from '@/models/Note';
+import { authUser } from '@/utils/serverHelpers';
 
 
 
 async function LastNote() {
   await connectDB();
 
-  const notes = await NoteModel.find({})
+  const user = await authUser();
+  
+  const notes = await NoteModel.find({username:user?._id});
 
 
   return (

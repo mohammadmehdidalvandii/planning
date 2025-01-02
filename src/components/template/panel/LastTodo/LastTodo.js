@@ -2,11 +2,13 @@ import CartSubTodo from '@/components/modules/CartSubTodo/CartSubTodo'
 import connectDB from '@/config/db'
 import React from 'react'
 import TodoModel from '@/models/Todo';
+import { authUser } from '@/utils/serverHelpers';
 
 async function LastTodo() {
   await connectDB();
 
-  const todos = await TodoModel.find({});
+  const user = await authUser();
+  const todos = await TodoModel.find({username:user?._id})
 
   return (
     <section className="block w-full">
