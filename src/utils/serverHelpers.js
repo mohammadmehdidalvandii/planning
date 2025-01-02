@@ -1,3 +1,4 @@
+"use server"
 import { cookies } from "next/headers";
 import UserModel from '@/models/User';
 import connectDB from "@/config/db";

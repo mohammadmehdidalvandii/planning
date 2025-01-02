@@ -10,7 +10,7 @@ async function page() {
   await  connectDB()
 
   const todos = await TodoModel.find({})
-  console.log("todos =>" , todos)
+  const user = await authUser();
 
   return (
     <>
@@ -21,7 +21,7 @@ async function page() {
         </div>
         <div className="col-span-4">
           <div className="container">
-                <TableTodo  todos={todos}/>
+                <TableTodo id={user?._id}  todos={todos}/>
           </div>
         </div>
     </div>

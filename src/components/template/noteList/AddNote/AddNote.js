@@ -16,17 +16,17 @@ function AddNote() {
 
     console.log("username" ,username)
 
-     useEffect(()=>{
-       const getUser = async()=>{
-           const user = await authUser();
-           if(user){
-               setUsername(user._id)
-           }else{
-        console.log("user not found")
-           }
-       };
-       getUser();
-     },[]);
+    //  useEffect(()=>{
+    //    const getUser = async()=>{
+    //        const user = await authUser();
+    //        if(user){
+    //            setUsername(user._id)
+    //        }else{
+    //     console.log("user not found")
+    //        }
+    //    };
+    //    getUser();
+    //  },[]);
 
     const handlerAddNote = (e)=>{
         e.preventDefault()

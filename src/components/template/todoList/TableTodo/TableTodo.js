@@ -5,7 +5,7 @@ import { FaTimes } from 'react-icons/fa';
 import useTodoStore from '@/zustand/useTodoStore';
 
 
-function TableTodo({todos}) {
+function TableTodo({todos ,id}) {
     const {removeTodo , completeTodo} = useTodoStore()
     const [showAddTodos , setShowAddTodos] = useState(false);
 
@@ -81,7 +81,9 @@ function TableTodo({todos}) {
                    <button className="btn_red mt-1 mr-1 w-[70px]" 
                         onClick={handlerExitAddTodo}
                     ><FaTimes/></button>
-                <AddToDo/>
+                <AddToDo 
+                userID={id}
+                />
             </div>
             )}
         </section>

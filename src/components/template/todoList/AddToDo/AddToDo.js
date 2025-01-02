@@ -1,36 +1,21 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import DatePicker from 'react-multi-date-picker';
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import useTodoStore from '@/zustand/useTodoStore';
-import { authUser } from '@/utils/serverHelpers';
 
 
-
-function AddToDo() {
+function AddToDo({userID}) {
     const {addTodo} = useTodoStore()
-    const [username , setUserName] = useState("676fe16aefdac86daf5bee65")
     const [subject , setSubject] =useState("");
     const [date , setDate ] = useState("")
     const [complete ,setComplete] = useState(false)
-    console.log("data" , date)
-    console.log("username" , username)
-
-    useEffect(()=>{
-        const getUser = async()=>{
-            const user = await authUser();
-            if(user){
-                setUserName(user._id)
-            }
-        };
-        getUser();
-    },[])
 
     const handlerAddTodo = (e)=>{
         e.preventDefault();
 
-        addTodo( username, subject, date ,complete)
+        addTodo( userID, subject, date ,complete)
     }
   return (
     <section className="block">
