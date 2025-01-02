@@ -4,12 +4,20 @@ import React, { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import AddNote from "../AddNote/AddNote";
 import useNoteStore from "@/zustand/useNoteStore";
+import EditNote from "../EditNote/EditNote";
 
 function TableNote({notes}) {
   const {removeNote} = useNoteStore()
       const [showAddNote , setShowAddNote] = useState(false);
       const [ showTextNote , setShowTextNote] = useState(false)
+      const [showUpdata , setShowUpdate] = useState(false);
       const [textNote , setTextNote] = useState();
+      const [updataID , setUpdataID] = useState();
+
+      const handlerUpdatedNote = (noteID)=>{
+        setShowUpdate(true)
+        setUpdataID(noteID)
+      }
 
     const handlerRemoveNote = (noteID)=>{
       removeNote(noteID)
@@ -26,6 +34,7 @@ function TableNote({notes}) {
       const handlerExitAddNote = ()=>{
           setShowAddNote(false)
           setShowTextNote(false)
+          setShowUpdate(false)
       }
 
   return (
@@ -61,7 +70,9 @@ function TableNote({notes}) {
               </td>
               <td className="px-2 py-3 text-center">{note.date}</td>
               <td className="flex items-center justify-center flex-col md:flex-row  px-2 py-3 text-center gap-2">
-                <button className="btn_green h-10 w-[100px]">
+                <button className="btn_green h-10 w-[100px]"
+                onClick={()=>handlerUpdatedNote(note._id)}
+                >
                    ویرایش
                 </button>
                 <button className="btn_red h-10 w-[100px]"
@@ -104,6 +115,17 @@ function TableNote({notes}) {
                 </div>
               )
             }
+             {showUpdata && (
+            <div className="shadow right-0" 
+            >
+                   <button className="btn_red mt-1 mr-1 w-[70px]" 
+                        onClick={handlerExitAddNote}
+                    ><FaTimes/></button>
+                    <EditNote  
+                    id={updataID}
+                    />
+            </div>
+            )}
     </section>
   );
 }

@@ -51,6 +51,36 @@ const useNoteStore = create((set)=>({
                 }
             }
         })
+    },
+
+    updataNote: (id , subject , text)=>{
+        swal({
+            title:"آیا از تغییر اطمینان دارید ؟",
+            icon:"error",
+            buttons:["نه","آره"]
+        }).then(async(result)=>{
+            if(result){
+                const res = await fetch(`/api/note/${id}`,{
+                    method: "PUT",
+                    headers:{
+                        "Content-Type":"application/json",
+                    },
+                    body:JSON.stringify({id ,subject , text}),
+                });
+                if(res.status === 200){
+                    set((state)=>({
+                        notes: state.notes.map(note=> note._id === id ? {...note}:true)
+                    }))
+                    swal({
+                        title:"تغییر کامل شد",
+                        icon:"success",
+                        buttons:"متوجه شدم"
+                    }).then(()=>{
+                        window.location.reload()
+                    })
+                }
+            }
+        })
     }
 }))
 

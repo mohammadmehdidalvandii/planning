@@ -3,10 +3,11 @@ import Sidebar from '@/components/modules/Sidebar/Sidebar'
 import TableNote from '@/components/template/noteList/TableNote/TableNote'
 import React from 'react'
 import NoteModel from '@/models/Note';
+import connectDB from '@/config/db';
 
 
  async function page() {
-
+  await connectDB()
   const notes = await NoteModel.find({});
 
 
