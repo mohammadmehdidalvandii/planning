@@ -6,7 +6,7 @@ import AddNote from "../AddNote/AddNote";
 import useNoteStore from "@/zustand/useNoteStore";
 import EditNote from "../EditNote/EditNote";
 
-function TableNote({notes}) {
+function TableNote({notes ,id}) {
   const {removeNote} = useNoteStore()
       const [showAddNote , setShowAddNote] = useState(false);
       const [ showTextNote , setShowTextNote] = useState(false)
@@ -98,7 +98,7 @@ function TableNote({notes}) {
                    <button className="btn_red mt-1 mr-1 w-[70px]" 
                         onClick={handlerExitAddNote}
                     ><FaTimes/></button>
-                  <AddNote/>
+                  <AddNote userID={id}/>
             </div>
             )}
             {

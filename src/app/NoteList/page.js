@@ -4,12 +4,13 @@ import TableNote from '@/components/template/noteList/TableNote/TableNote'
 import React from 'react'
 import NoteModel from '@/models/Note';
 import connectDB from '@/config/db';
+import { authUser } from '@/utils/serverHelpers';
 
 
  async function page() {
   await connectDB()
   const notes = await NoteModel.find({});
-
+  const user = await authUser();
 
 
   return (
@@ -21,7 +22,7 @@ import connectDB from '@/config/db';
    </div>
    <div className="col-span-4">
      <div className="container">
-           <TableNote notes={notes}/>
+           <TableNote id={user?._id} notes={notes}/>
      </div>
    </div>
 </div>

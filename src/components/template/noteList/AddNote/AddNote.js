@@ -4,33 +4,17 @@ import DatePicker from 'react-multi-date-picker';
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import useNoteStore from '@/zustand/useNoteStore';
-import { authUser } from '@/utils/serverHelpers';
-import connectDB from '@/config/db';
 
-function AddNote() {
+
+function AddNote({userID}) {
     const {addNote} = useNoteStore();
-    const [username ,  setUsername] = useState("676fe16aefdac86daf5bee65");
     const [subject , setSubject] = useState("");
     const [text , setText] = useState("");
     const [date , setDate] = useState("");
 
-    console.log("username" ,username)
-
-    //  useEffect(()=>{
-    //    const getUser = async()=>{
-    //        const user = await authUser();
-    //        if(user){
-    //            setUsername(user._id)
-    //        }else{
-    //     console.log("user not found")
-    //        }
-    //    };
-    //    getUser();
-    //  },[]);
-
     const handlerAddNote = (e)=>{
         e.preventDefault()
-        addNote(username,subject,text,date);
+        addNote(userID,subject,text,date);
     }
 
   return (
