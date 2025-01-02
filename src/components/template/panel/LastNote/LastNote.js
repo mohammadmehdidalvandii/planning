@@ -4,6 +4,7 @@ import React from 'react'
 import NoteModel from '@/models/Note';
 
 
+
 async function LastNote() {
   await connectDB();
 

@@ -34,7 +34,7 @@ function CartSubNote({ id, subject , text }) {
           مشاهده
         </button>
         <button className="flex text-font-default dark:text-font-100 ease-linear duration-300 hover:text-red-600 dark:hover:text-red-600"
-          onClick={(id)=>{
+          onClick={()=>{
             removeNote(id)
           }}
         >
