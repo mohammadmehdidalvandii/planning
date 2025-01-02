@@ -48,7 +48,7 @@ function TableTodo({todos}) {
             <tbody className="text-font-default dark:text-font-100 text-base font-danaMedium">
             {
         todos.length > 0 ? (
-            todos.map((todo) => (
+            todos.slice().reverse().map((todo) => (
                 <tr className="border-b bg-background-300 dark:bg-background-dark" key={todo._id}>
                     <td className={todo.complete === true ? "px-2 py-3 text-center line-through " :"px-2 py-3 text-center"}>{todo.subject}</td>
                     <td className="px-2 py-3 text-center">{todo.date}</td>

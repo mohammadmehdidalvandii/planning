@@ -58,7 +58,7 @@ function TableNote({notes}) {
           <tbody className="text-font-default dark:text-font-100 text-base font-danaMedium">
             {
               notes.length > 0 ? (
-                notes.map((note)=>(
+                notes.slice().reverse().map((note)=>(
                   <tr className="border-b bg-background-300 dark:bg-background-dark" key={note._id}>
               <td className="px-2 py-3 text-center">{note.subject}</td>
               <td className="px-2 py-3 text-center">
