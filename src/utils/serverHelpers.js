@@ -1,4 +1,3 @@
-"use server"
 import { cookies } from "next/headers";
 import UserModel from '@/models/User';
 import connectDB from "@/config/db";
@@ -11,7 +10,7 @@ const authUser = async ()=>{
     if(token){
         const tokenPayload = verifyAccessToken(token.value)
         if(tokenPayload){
-            user = await UserModel.findOne({email:token.email})
+            user = await UserModel.findOne({email:tokenPayload.email})
         }
     }
     return user;
