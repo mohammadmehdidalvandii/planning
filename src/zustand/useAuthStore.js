@@ -24,6 +24,13 @@ const useAuthStore  = create((set) => ({
                 }).then(()=>{
                     window.location.replace("/")
                 })
+            } 
+            if(res.status === 422 || res.status === 419){
+                swal({  
+                    title:"رمز عبور یا ایمیل نادرست است",
+                    icon:"error",
+                    button:"تلاش مجدد",
+                })
             }
         } catch (error) {
             console.log("Login Failed", error);
