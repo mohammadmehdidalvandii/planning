@@ -2,6 +2,8 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import useAuthStore from '@/zustand/useAuthStore'
+import showAlert from '@/utils/ShowAlert';
+import { validationEmail ,validationPassword ,validationPhone } from '@/utils/auth';
 
 function Register() {
 const {register} = useAuthStore();
@@ -12,7 +14,19 @@ const [password , setPassword] = useState("")
 
     const handlerRegister = async (e) =>{
         e.preventDefault();
-         register(username , email , phone , password)
+
+        if(!username.trim() || !email.trim() || !phone.trim() || !password.trim()){
+            showAlert("مقدار تمام فیلد ها اجباری است","error","تلاش مجدد")
+        }else if(!validationEmail(email) ){
+            showAlert("مقدار ایمیل درست نیست","error","تلاش مجدد")
+        }else if(!validationPassword(password)){
+            showAlert(" لاتین باشد-مقدار رمزعبور باید شامل یک حروف بزرگ - عدد - ویک علامت خاص @ - ! - $","error","تلاش مجدد")
+        } else if(!validationPhone(phone)){
+            showAlert("مقدار فیلد تلفن درست نیست","error","تلاش مجدد")
+        }else{
+            register(username , email , phone , password)
+        }
+
 
     }
 
