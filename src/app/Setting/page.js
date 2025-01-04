@@ -19,7 +19,7 @@ async function page() {
    </div>
    <div className="col-span-4">
      <div className="container">
-           <Change/>
+           <Change id={user?._id}/>
      </div>
    </div>
 </div>
