@@ -43,7 +43,7 @@ function Login() {
             </div>
             <div className="form_wrapper">
                 <label htmlFor="#" className="form_label"> رمزعبور :</label>
-                <input type="text"
+                <input type="password"
                     value={password}
                     onChange={event => setPassword(event.target.value)}
                 className='form_input' />
