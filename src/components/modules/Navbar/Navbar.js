@@ -6,7 +6,8 @@ import useAuthStore from '@/zustand/useAuthStore';
 
 
 
-function Navbar() {
+function Navbar({user}) {
+    console.log("user" , user)
     const {logout} = useAuthStore();
 
     const handlerExit = ()=>{
@@ -22,9 +23,11 @@ function Navbar() {
                 </div>
                 <div className="flex justify-center gap-4">
                     <BtnTheme/>
+                    {user?.refreshToken && (
                     <button className="btn_primary" onClick={handlerExit}>
                         <IoExitOutline/>
                     </button>
+                    )}
                 </div>
             </div>
         </div>

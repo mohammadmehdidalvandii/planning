@@ -1,12 +1,18 @@
 import Navbar from '@/components/modules/Navbar/Navbar'
 import Sidebar from '@/components/modules/Sidebar/Sidebar'
 import Change from '@/components/template/settting/Change/Change'
+import connectDB from '@/config/db'
+import { authUser } from '@/utils/serverHelpers'
 import React from 'react'
 
-function page() {
+async function page() {
+  await connectDB();
+
+  const user = await authUser()
+
   return (
     <>
-    <Navbar/>
+    <Navbar user={user}/>
 <div className="grid lg:gap-x-4 xl:gap-x-4 w-full lg:grid-cols-5 xl:grid-cols-5  grid-cols-1 gap-0">
    <div>
      <Sidebar/>

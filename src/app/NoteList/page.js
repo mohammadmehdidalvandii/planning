@@ -15,7 +15,7 @@ import { authUser } from '@/utils/serverHelpers';
  
   return (
     <>
-    <Navbar/>
+    <Navbar user={user}/>
 <div className="grid lg:gap-x-4 xl:gap-x-4 w-full lg:grid-cols-5 xl:grid-cols-5  grid-cols-1 gap-0">
    <div>
      <Sidebar/>

@@ -4,11 +4,15 @@ import CalendarFa from '@/components/template/panel/Calendar/Calendar'
 import LastNote from '@/components/template/panel/LastNote/LastNote'
 import LastTodo from '@/components/template/panel/LastTodo/LastTodo'
 import Welcome from '@/components/template/panel/Welcome/Welcome'
+import connectDB from '@/config/db'
+import { authUser } from '@/utils/serverHelpers'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import React from 'react'
 
-function Home() {
+async function Home() {
+  await connectDB();
+  const user = await authUser();
 
   const token = cookies().get("token");
   if(!token){
@@ -17,7 +21,7 @@ function Home() {
 
   return (
    <>
-    <Navbar/>
+    <Navbar user={user}/>
     <div className="grid lg:gap-x-4 xl:gap-x-4 w-full lg:grid-cols-5 xl:grid-cols-5  grid-cols-1 gap-0">
         <div>
           <Sidebar/>
