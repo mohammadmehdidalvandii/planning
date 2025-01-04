@@ -2,6 +2,8 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import useAuthStore from '@/zustand/useAuthStore';
+import showAlert from '@/utils/ShowAlert';
+import { validationEmail ,validationPassword } from '@/utils/auth';
 
 function Login() {
     const {login} = useAuthStore()
@@ -9,6 +11,17 @@ function Login() {
     const [password , setPassword] = useState("");
 
     const handlerLogin = (e)=>{
+
+        if(!email.trim() || !password.trim()){
+            showAlert("مقدار ایمیل و رمزعبور اجباری است","error","تلاش مجدد")
+        }
+        if(!validationEmail(email)){
+            showAlert("مقدار ایمیل و رمز عبور قابل قبول نیست","error","تلاش مجدد")
+        }
+        if(!validationPassword(password)){
+            showAlert("مقدار ایمیل و رمز عبور قابل قبول نیست","error","تلاش مجدد")
+        }
+
         e.preventDefault();
         login(email , password)
     }

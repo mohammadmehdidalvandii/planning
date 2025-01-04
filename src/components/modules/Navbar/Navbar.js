@@ -7,7 +7,6 @@ import useAuthStore from '@/zustand/useAuthStore';
 
 
 function Navbar({user}) {
-    console.log("user" , user)
     const {logout} = useAuthStore();
 
     const handlerExit = ()=>{
